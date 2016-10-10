@@ -28,7 +28,7 @@ fi
 # Base packages
 apt-get -y update
 DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
-apt-get install -y python-pip python-dev nginx curl build-essential pwgen
+apt-get install -y sudo python-pip python-dev nginx curl build-essential pwgen
 # BigQuery dependencies:
 apt-get install -y libffi-dev libssl-dev
 # MySQL dependencies:
@@ -113,7 +113,7 @@ fi
 
 # Directories
 if [ ! -d "$REDASH_BASE_PATH" ]; then
-    sudo mkdir /opt/redash
+    sudo mkdir -p /opt/redash
     sudo chown redash /opt/redash
     sudo -u redash mkdir /opt/redash/logs
 fi
